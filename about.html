@@ -24,7 +24,7 @@
         </div>
     </nav>
 <div class="whole-container">
-    <section id="about-us">
+    <section id="about-us" class="fade-in-section">
         <div class="container">
             <h3>About BS Pest Control</h3>
             <p>
@@ -48,5 +48,26 @@
             <p>&copy; 2024 BS Pest Control. All rights reserved.</p>
         </div>
     </footer>
+
+
+    <!-- JavaScript for Toggle Functionality and Scroll Animations -->
+    <script>
+        
+
+        // Scroll animation
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeInSections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>

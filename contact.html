@@ -24,7 +24,7 @@
         </div>
     </nav>
     <div class="whole-container">
-        <section id="contact-form">
+        <section id="contact-form" class="fade-in-section">
             <div class="container">
                 <h3>Contact BS Pest Control</h3>
                 <p>If you have any queries or need assistance with pest control, feel free to contact us through the information given below or submit the form.</p>
@@ -56,6 +56,20 @@
                 // Adjust the iframe height after form submission
                 iframe.style.height = "600px";
             }
+        });
+         // Scroll animation
+         const fadeInSections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeInSections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
